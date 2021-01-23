@@ -1,5 +1,5 @@
 <?php
-	# session_start();
+	session_start();
 	include "Utiles.php";
 	class Sesion {
 		private $Consulta;
@@ -49,8 +49,9 @@
 					$_SESSION["Nombre"] = $this->Respuesta["Nombre"];
 					$_SESSION["Tipo"] = $this->Respuesta["TipoUsuario"];
 					$_SESSION["Logueado"] = true;
-
-					header('location:../index.php');
+					print_r($this->Respuesta);
+					print_r($_SESSION);
+					#header('location:../index.php');
 				}
 			}else{
 				header('location:Inicio.php');
