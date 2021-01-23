@@ -363,18 +363,17 @@
 								if(isset($_SESSION["Logueado"])){
 									if($_SESSION["Logueado"]){
 							?>
-								<li class="item button"><a href="Inicio.php">Iniciar sesi&oacute;n</a></li>
+										<li class="item button"><a href="php/CerrarSesion.php">Cerrar sesi&oacute;n</a></li>
 							<?php
 									} else {
 							?>
-								<li class="item button"><a href="php/CerrarSesion.php">Cerrar sesi&oacute;n</a></li>
 							<?php
 									}
 							?>
 							<?php
 								} else {
 							?>
-								<li class="item button"><a href="php/CerrarSesion.php">Cerrar sesi&oacute;n</a></li>
+								<li class="item button"><a href="Inicio.php">Iniciar sesi&oacute;n</a></li>
 							<?php } ?>
 
 							
