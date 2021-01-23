@@ -332,14 +332,23 @@
 			?>
 							<div class="row">
 								<div class="col-12"><br><br></div>
-								<div class="col-12">
-									<h3>Crear publicacion</h3>
+								<div class="col-12" align="center">
+									<h3><b>Crear publicacion</b></h3>
 								</div>
 								<div class="col-12">
 									<form>
 										<div class="row">
-											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3"></div>
-											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3"></div>
+											<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1" align="center">
+												<textarea id="Texto" name="Texto" cols="20" rows="5" class="form-control"></textarea>
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4" align="center">
+												<label>Imagenes</label>
+												<input type="file" name="Imagenes" class="form-control">
+											</div>
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4" align="center">
+												<label>Videos</label>
+												<input type="file" name="Videos" class="form-control">
+											</div>
 										</div>
 									</form>
 								</div>
