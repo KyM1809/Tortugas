@@ -77,56 +77,6 @@
 			return $this->Numero1;
 		}
 
-		public function VerificarCodigo($C){
-			$this->MyConnection = $this->Connection->Conectar();
-			$this->Consulta = "CALL `SP022VerificarExisteCodigo`(?);";
-			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
-				//ListaUsuarios::Responder(false,"ERRORRS01-F1");
-			}
-
-			if( !$this->Solicitud->bind_param("s", $C)){
-				//ListaUsuarios::Responder(false,"ERRORRS01-F2");
-			}
-
-			if( !$this->Solicitud->execute() ){
-				//ListaUsuarios::Responder(false,"ERRORRS01-F3");
-			}else{
-				$this->Resultado = $this->Solicitud->get_result();
-				$this->Respuesta = $this->Resultado->fetch_assoc();
-				$this->Numero1 = $this->Respuesta["Numero"];
-			}
-			return $this->Numero1;
-		}
-
-		public function ConectarUsuario($U){
-			if(Utiles::VerificarUsuario($U) == "1"){
-				$this->MyConnection = $this->Connection->Conectar();
-				$this->Consulta = "CALL `SPConectarUsuario`(?);";
-				if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
-					//echo '{"Exito":true,"Existe": true,"Completado":false, "P": 2}';
-				}
-
-				if( !$this->Solicitud->bind_param("s", $U)){
-					//echo '{"Exito":true ,"Existe": true, "Completado":false, "P": 3}';
-				}
-
-				if( !$this->Solicitud->execute() ){
-					//echo '{"Exito":true,"Existe": true,"Completado":false, "P": 4}';
-				}else{
-					$this->Resultado = $this->Solicitud->get_result();
-					//$this->Respuesta = $this->Resultado->fetch_assoc();
-					
-					if($this->Respuesta["Exito"] == "1" && $this->Respuesta["Numero"] == "1"){
-						//echo '{"Exito":true,"Existe": true,"Completado":true, "P": 5}';
-					}else{
-						//echo '{"Exito":true,"Existe": true,"Completado":false, "P": 6}';
-					}
-				}
-			}else{
-				//echo '{"Exito":true ,"Existe":false, "Completado":false, "P": 1}';
-			}
-		}
-
 		public function ActualizarDatosCierre($U){
 			if(Utiles::VerificarUsuario($U) == "1"){
 				$this->MyConnection2 = $this->Connection2->Conectar();
