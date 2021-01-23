@@ -121,12 +121,12 @@ CREATE TABLE IF NOT EXISTS `tloginicio` (
 -- Volcando estructura para tabla bdcamptort_d6wn4.tmultimediapublicacion
 CREATE TABLE IF NOT EXISTS `tmultimediapublicacion` (
   `Publicacion` int(11) DEFAULT NULL,
-  `Arhicov` varchar(100) DEFAULT NULL,
+  `Archivo` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `Extension` int(11) DEFAULT NULL,
   `Tamano` int(11) DEFAULT NULL,
   KEY `FK_TMultimediaPublicacion_TPublicaciones` (`Publicacion`),
   CONSTRAINT `FK_TMultimediaPublicacion_TPublicaciones` FOREIGN KEY (`Publicacion`) REFERENCES `tpublicaciones` (`Publicacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tmultimediapublicacion: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tmultimediapublicacion` DISABLE KEYS */;
@@ -168,18 +168,18 @@ CREATE TABLE IF NOT EXISTS `tpublicaciones` (
 
 -- Volcando estructura para tabla bdcamptort_d6wn4.tusuarios
 CREATE TABLE IF NOT EXISTS `tusuarios` (
-  `Nick` varchar(30) NOT NULL,
-  `Nombre` varchar(40) NOT NULL,
-  `ApellidoPaterno` varchar(20) NOT NULL,
-  `ApellidoMaterno` varchar(20) NOT NULL,
-  `Celular` varchar(15) NOT NULL,
-  `Correo` varchar(100) NOT NULL,
-  `Contrasena` varchar(130) NOT NULL,
+  `Nick` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Nombre` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ApellidoPaterno` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `ApellidoMaterno` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Celular` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `Contrasena` varchar(130) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `TipoUsuario` int(11) NOT NULL,
   PRIMARY KEY (`Nick`),
   KEY `FK_tusuarios_TCatTipoUsuario` (`TipoUsuario`),
   CONSTRAINT `FK_tusuarios_TCatTipoUsuario` FOREIGN KEY (`TipoUsuario`) REFERENCES `tcattipousuario` (`TipoUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tusuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `tusuarios` DISABLE KEYS */;
