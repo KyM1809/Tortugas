@@ -1,5 +1,6 @@
 
 <?php
+	include "Conexion.php";
 	class Utiles{
 
 		private $Consulta;
