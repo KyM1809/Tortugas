@@ -63,9 +63,9 @@ DELIMITER ;
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcatadoptado
 CREATE TABLE IF NOT EXISTS `tcatadoptado` (
   `Adoptado` int(11) NOT NULL AUTO_INCREMENT,
-  `Descripcion` varchar(50) NOT NULL,
+  `Descripcion` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`Adoptado`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tcatadoptado: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `tcatadoptado` DISABLE KEYS */;
@@ -77,9 +77,9 @@ INSERT INTO `tcatadoptado` (`Adoptado`, `Descripcion`) VALUES
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcattipousuario
 CREATE TABLE IF NOT EXISTS `tcattipousuario` (
   `TipoUsuario` int(11) NOT NULL AUTO_INCREMENT,
-  `Descripcion` varchar(50) NOT NULL,
+  `Descripcion` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`TipoUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tcattipousuario: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `tcattipousuario` DISABLE KEYS */;
@@ -91,13 +91,13 @@ INSERT INTO `tcattipousuario` (`TipoUsuario`, `Descripcion`) VALUES
 -- Volcando estructura para tabla bdcamptort_d6wn4.tlogconsultas
 CREATE TABLE IF NOT EXISTS `tlogconsultas` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Usuario` varchar(30) NOT NULL,
-  `Consulta` varchar(100) NOT NULL,
+  `Usuario` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Consulta` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `FechaHora` datetime NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `FK_TLogConsultas_tusuarios` (`Usuario`),
   CONSTRAINT `FK_TLogConsultas_tusuarios` FOREIGN KEY (`Usuario`) REFERENCES `tusuarios` (`Nick`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tlogconsultas: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tlogconsultas` DISABLE KEYS */;
@@ -106,13 +106,13 @@ CREATE TABLE IF NOT EXISTS `tlogconsultas` (
 -- Volcando estructura para tabla bdcamptort_d6wn4.tloginicio
 CREATE TABLE IF NOT EXISTS `tloginicio` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Usuario` varchar(30) NOT NULL,
+  `Usuario` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `FechaHora` datetime NOT NULL,
-  `Contrasena` varchar(130) NOT NULL,
+  `Contrasena` varchar(130) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `FK_TLogInicio_tusuarios` (`Usuario`),
   CONSTRAINT `FK_TLogInicio_tusuarios` FOREIGN KEY (`Usuario`) REFERENCES `tusuarios` (`Nick`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tloginicio: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tloginicio` DISABLE KEYS */;
@@ -135,16 +135,16 @@ CREATE TABLE IF NOT EXISTS `tmultimediapublicacion` (
 -- Volcando estructura para tabla bdcamptort_d6wn4.tnidos
 CREATE TABLE IF NOT EXISTS `tnidos` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Nido` varchar(50) NOT NULL,
+  `Nido` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `Huevos` int(11) NOT NULL,
   `Adoptado` int(11) NOT NULL,
-  `Adopta` varchar(30) NOT NULL,
+  `Adopta` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `FK_TNidos_TCatAdoptado` (`Adoptado`),
   KEY `FK_TNidos_tusuarios` (`Adopta`),
   CONSTRAINT `FK_TNidos_TCatAdoptado` FOREIGN KEY (`Adoptado`) REFERENCES `tcatadoptado` (`Adoptado`),
   CONSTRAINT `FK_TNidos_tusuarios` FOREIGN KEY (`Adopta`) REFERENCES `tusuarios` (`Nick`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tnidos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tnidos` DISABLE KEYS */;
@@ -153,40 +153,18 @@ CREATE TABLE IF NOT EXISTS `tnidos` (
 -- Volcando estructura para tabla bdcamptort_d6wn4.tpublicaciones
 CREATE TABLE IF NOT EXISTS `tpublicaciones` (
   `Publicacion` int(11) NOT NULL AUTO_INCREMENT,
-  `Texto` varchar(2048) NOT NULL,
+  `Texto` varchar(2048) COLLATE utf8_unicode_ci NOT NULL,
   `FechaHora` datetime NOT NULL,
-  `Usuario` varchar(30) NOT NULL,
-  `Token` varchar(130) NOT NULL,
+  `Usuario` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `Token` varchar(130) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`Publicacion`),
   KEY `FK_TPublicaciones_tusuarios` (`Usuario`),
   CONSTRAINT `FK_TPublicaciones_tusuarios` FOREIGN KEY (`Usuario`) REFERENCES `tusuarios` (`Nick`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tpublicaciones: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tpublicaciones` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tpublicaciones` ENABLE KEYS */;
-
--- Volcando estructura para tabla bdcamptort_d6wn4.tusuarios
-CREATE TABLE IF NOT EXISTS `tusuarios` (
-  `Nick` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Nombre` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `ApellidoPaterno` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `ApellidoMaterno` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Celular` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Correo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Contrasena` varchar(130) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `TipoUsuario` int(11) NOT NULL,
-  PRIMARY KEY (`Nick`),
-  KEY `FK_tusuarios_TCatTipoUsuario` (`TipoUsuario`),
-  CONSTRAINT `FK_tusuarios_TCatTipoUsuario` FOREIGN KEY (`TipoUsuario`) REFERENCES `tcattipousuario` (`TipoUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- Volcando datos para la tabla bdcamptort_d6wn4.tusuarios: ~2 rows (aproximadamente)
-/*!40000 ALTER TABLE `tusuarios` DISABLE KEYS */;
-INSERT INTO `tusuarios` (`Nick`, `Nombre`, `ApellidoPaterno`, `ApellidoMaterno`, `Celular`, `Correo`, `Contrasena`, `TipoUsuario`) VALUES
-	('u1@u.com', 'Eduardo Alonso', 'Velazquez', 'Cerda', '753', 'eduardo@correo.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 1),
-	('u2@u.com', 'Eduardo Alonso', 'Velazquez', 'Cerda', '753', 'eduardo@correo.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 2);
-/*!40000 ALTER TABLE `tusuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
