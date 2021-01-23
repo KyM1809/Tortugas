@@ -36,17 +36,17 @@
 
 		public function ComprobarExisteUsuario($U, $C){
 			$this->MyConnection = $this->Connection->Conectar();
-			$this->Consulta = "CALL `SP005ComprobarExisteUsuario`(?,?);";
+			$this->Consulta = "CALL `SP02ComprobarExisteUsuario`(?,?);";
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
-				ListaUsuarios::Responder(false,"ERRORRS01-F1");
+				//ListaUsuarios::Responder(false,"ERRORRS01-F1");
 			}
 
 			if( !$this->Solicitud->bind_param("ss", $U, $C)){
-				ListaUsuarios::Responder(false,"ERRORRS01-F2");
+				//ListaUsuarios::Responder(false,"ERRORRS01-F2");
 			}
 
 			if( !$this->Solicitud->execute() ){
-				ListaUsuarios::Responder(false,"ERRORRS01-F3");
+				//ListaUsuarios::Responder(false,"ERRORRS01-F3");
 			}else{
 				$this->Resultado = $this->Solicitud->get_result();
 				$this->Respuesta = $this->Resultado->fetch_assoc();
