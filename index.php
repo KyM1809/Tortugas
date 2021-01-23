@@ -378,7 +378,7 @@
 
 							
 							<?php
-								if(!isset($_SESSION["Logueado"])){
+								if(isset($_SESSION["Logueado"])){
 							?>
 							<?php
 								} else {
