@@ -172,7 +172,7 @@
 				margin-left: 0;
 				margin-right: 0;
 			}
-			
+
 
 
 
@@ -291,6 +291,7 @@
 					<nav>
 						<ul class="menu">
 							<li class="logo"><a href="#">Campamento tortuguero</a></li>
+							<li class="item"><a href="Publicaciones.php">Publicaciones</a></li>
 							<li class="item"><a href="Adoptar.php">Adopta</a></li>
 							<li class="item"><a href="#">Contacto</a><li>
 							<?php
