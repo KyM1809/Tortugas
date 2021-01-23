@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -358,8 +359,33 @@
 							<li class="logo"><a href="#">Campamento tortuguero</a></li>
 							<li class="item"><a href="#">Adopta</a></li>
 							<li class="item"><a href="#">Contacto</a><li>
-							<li class="item button"><a href="Inicio.php">Iniciar sesi&oacute;n</a></li>
-							<li class="item button secondary"><a href="Registro.php">Registrarme</a></li>
+							<?php
+								if(isset($_SESSION["Logueado"])){
+									if($_SESSION["Logueado"]){
+							?>
+								<li class="item button"><a href="Inicio.php">Iniciar sesi&oacute;n</a></li>
+							<?php
+									} else {
+							?>
+								<li class="item button"><a href="php/CerrarSesion.php">Cerrar sesi&oacute;n</a></li>
+							<?php
+									}
+							?>
+							<?php
+								} else {
+							?>
+								<li class="item button"><a href="php/CerrarSesion.php">Cerrar sesi&oacute;n</a></li>
+							<?php } ?>
+
+							
+							<?php
+								if(!isset($_SESSION["Logueado"])){
+							?>
+							<?php
+								} else {
+							?>
+								<li class="item button secondary"><a href="Registro.php">Registrarme</a></li>
+							<?php } ?>
 							<li id="Toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
 						</ul>
 					</nav>
