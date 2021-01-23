@@ -8,6 +8,29 @@
 			include('php/styles.php');
 		?>
 		<style type="text/css">
+			@media screen and (max-width: 800px) {
+			    #contenedor{
+			        width:100%;
+			    }
+			}
+
+			@media screen and (max-device-width : 480px) {
+			    #sidebar{
+			        display:none;
+			    }
+
+			    #menu{
+			        text-align:center;
+			    }
+			}
+
+			@media screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+			    .entry, .entry-content{
+			        font-size:1.2em;
+			        line-height:1.5em;
+			    }
+			}
+			
 			.carousel{
 				height: 600px;
 			}
@@ -357,7 +380,7 @@
 					<nav>
 						<ul class="menu">
 							<li class="logo"><a href="#">Campamento tortuguero</a></li>
-							<li class="item"><a href="#">Adopta</a></li>
+							<li class="item"><a href="Adoptar.php">Adopta</a></li>
 							<li class="item"><a href="#">Contacto</a><li>
 							<?php
 								if(isset($_SESSION["Logueado"])){
