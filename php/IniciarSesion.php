@@ -1,5 +1,5 @@
 <?php
-	session_start();
+	# session_start();
 	include "Utiles.php";
 	class Sesion {
 		private $Consulta;
