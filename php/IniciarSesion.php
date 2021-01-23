@@ -49,9 +49,9 @@
 					$_SESSION["Nombre"] = $this->Respuesta["Nombre"];
 					$_SESSION["Tipo"] = $this->Respuesta["TipoUsuario"];
 					$_SESSION["Logueado"] = true;
-					print_r($this->Respuesta);
-					print_r($_SESSION);
-					#header('location:../index.php');
+					#print_r($this->Respuesta);
+					#print_r($_SESSION);
+					header('location:../index.php');
 				}
 			}else{
 				header('location:Inicio.php');
