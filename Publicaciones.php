@@ -325,16 +325,30 @@
 					</nav>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<form>
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3"></div>
-							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3"></div>
-						</div>
-					</form>
-				</div>
-			</div>
+			<?php
+				if(isset($_SESSION['Logueado'])){
+					if($_SESSION['Logueado']){
+						if($_SESSION['Tipo'] == '1'){
+			?>
+							<div class="row">
+								<div class="col-12"><br><br></div>
+								<div class="col-12">
+									<h3>Crear publicacion</h3>
+								</div>
+								<div class="col-12">
+									<form>
+										<div class="row">
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3"></div>
+											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3"></div>
+										</div>
+									</form>
+								</div>
+							</div>
+			<?php
+						}
+					}
+				}
+			?>
 		</div>
 	</body>
 </html>
