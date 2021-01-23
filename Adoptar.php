@@ -46,13 +46,13 @@
 							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
 								<div class="form-group">
 									<label>Nombre de nido</label>
-									<input type="text" name="NombreNido">
+									<input type="text" name="NombreNido" class="form-control">
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
 								<div class="form-group">
 									<label>Numero de huevos</label>
-									<input type="number" name="NumeroHuevos">
+									<input type="number" name="NumeroHuevos" class="form-control">
 								</div>
 							</div>
 						</div>
