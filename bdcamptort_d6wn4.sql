@@ -36,15 +36,42 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento bdcamptort_d6wn4.SP02ComprobarExisteUsuario
+DELIMITER //
+CREATE PROCEDURE `SP02ComprobarExisteUsuario`(
+	IN `PUsuario` VARCHAR(50),
+	IN `PContrasena` VARCHAR(130)
+)
+BEGIN
+	SELECT COUNT(Nombre) AS Numero FROM tusuarios WHERE Nick = PUsuario AND Contrasena = PContrasena;
+END//
+DELIMITER ;
+
+-- Volcando estructura para procedimiento bdcamptort_d6wn4.SP03ObtenerDatosUsuario
+DELIMITER //
+CREATE PROCEDURE `SP03ObtenerDatosUsuario`(
+	IN `PUsuario` VARCHAR(50),
+	IN `PContrasena` VARCHAR(130)
+)
+BEGIN
+	SELECT Nick AS Usuario, Nombre, ApellidoPaterno, ApellidoMaterno, Celular, TipoUsuario
+	FROM tusuarios
+	WHERE Nick = PUsuario AND Contrasena = PContrasena;
+END//
+DELIMITER ;
+
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcatadoptado
 CREATE TABLE IF NOT EXISTS `tcatadoptado` (
   `Adoptado` int(11) NOT NULL AUTO_INCREMENT,
   `Descripcion` varchar(50) NOT NULL,
   PRIMARY KEY (`Adoptado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tcatadoptado: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tcatadoptado: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `tcatadoptado` DISABLE KEYS */;
+INSERT INTO `tcatadoptado` (`Adoptado`, `Descripcion`) VALUES
+	(1, 'Adoptado'),
+	(2, 'Disponible para adoptar');
 /*!40000 ALTER TABLE `tcatadoptado` ENABLE KEYS */;
 
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcattipousuario
@@ -52,10 +79,13 @@ CREATE TABLE IF NOT EXISTS `tcattipousuario` (
   `TipoUsuario` int(11) NOT NULL AUTO_INCREMENT,
   `Descripcion` varchar(50) NOT NULL,
   PRIMARY KEY (`TipoUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tcattipousuario: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tcattipousuario: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `tcattipousuario` DISABLE KEYS */;
+INSERT INTO `tcattipousuario` (`TipoUsuario`, `Descripcion`) VALUES
+	(1, 'Admin'),
+	(2, 'Usuario');
 /*!40000 ALTER TABLE `tcattipousuario` ENABLE KEYS */;
 
 -- Volcando estructura para tabla bdcamptort_d6wn4.tlogconsultas
@@ -151,8 +181,11 @@ CREATE TABLE IF NOT EXISTS `tusuarios` (
   CONSTRAINT `FK_tusuarios_TCatTipoUsuario` FOREIGN KEY (`TipoUsuario`) REFERENCES `tcattipousuario` (`TipoUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tusuarios: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tusuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `tusuarios` DISABLE KEYS */;
+INSERT INTO `tusuarios` (`Nick`, `Nombre`, `ApellidoPaterno`, `ApellidoMaterno`, `Celular`, `Correo`, `Contrasena`, `TipoUsuario`) VALUES
+	('u1@u.com', 'Eduardo Alonso', 'Velazquez', 'Cerda', '753', 'eduardo@correo.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 1),
+	('u2@u.com', 'Eduardo Alonso', 'Velazquez', 'Cerda', '753', 'eduardo@correo.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 2);
 /*!40000 ALTER TABLE `tusuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
