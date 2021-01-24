@@ -44,6 +44,25 @@
 				header('location:../Nidos.php');
 			}
 		}
+
+		public function Adoptar(){
+			$this->MyConnection = $this->Connection->Conectar();
+			$this->Consulta = "CALL `SP08AdoptarNido`(?,?);";
+			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
+				echo '{}';
+			}
+			$Nido = $_POST["IdNido"];
+			$Usuario = $_SESSION["Usuario"];
+			if( !$this->Solicitud->bind_param("is", $Nido, $Usuario)){
+				echo '{}';
+			}
+
+			if( !$this->Solicitud->execute() ){
+				echo '{}';
+			}else{
+				header('location:../MisNidos.php');
+			}
+		}
 	}
 
 	$Obj = new Nido();
@@ -54,7 +73,7 @@
 				break;
 
 			case '2':
-				# code...
+				$Obj->Adoptar();
 				break;
 
 			case '3':
