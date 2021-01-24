@@ -347,16 +347,16 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-12">
+				<div class="col-10 offset-1">
 					<form method="POST" action="">
 						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+							<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 offset-xs-1 offset-sm-1">
 								<div class="form-group">
 									<label>Nombre de nido</label>
 									<input type="text" name="NombreNido" class="form-control">
 								</div>
 							</div>
-							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+							<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 offset-xs-1 offset-sm-1">
 								<div class="form-group">
 									<label>Numero de huevos</label>
 									<input type="number" name="NumeroHuevos" class="form-control">
