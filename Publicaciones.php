@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Adopción</title>
+		<title>Publicaciones</title>
 		<?php
 			include('php/meta.php');
 			include('php/styles.php');
