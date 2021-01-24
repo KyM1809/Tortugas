@@ -393,7 +393,7 @@
 								}
 							?>
 							<li class="item"><a href="Adoptar.php">Adopta</a></li>
-							<li class="item"><a href="#">Contacto</a><li>
+							<li class="item"><a href="Contacto.php">Contacto</a><li>
 							<?php
 								if(isset($_SESSION["Logueado"])){
 									if($_SESSION["Logueado"]){
