@@ -381,6 +381,7 @@
 						<ul class="menu">
 							<li class="logo"><a href="index.php">Campamento tortuguero</a></li>
 							<li class="item"><a href="Publicaciones.php">Publicaciones</a></li>
+							<li class="item"><a href="MisNidos.php">Mis Nidos</a></li>
 							<?php
 								if(isset($_SESSION['Logueado'])){
 									if($_SESSION['Logueado']){
