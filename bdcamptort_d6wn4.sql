@@ -101,6 +101,18 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento bdcamptort_d6wn4.SP08AdoptarNido
+DELIMITER //
+CREATE PROCEDURE `SP08AdoptarNido`(
+	IN `PNido` INT,
+	IN `PUsuario` VARCHAR(50)
+)
+BEGIN
+	UPDATE tnidos SET Adoptado = 1, Adopta = PUsuario WHERE tnidos.Id = PNido;
+	SELECT '1' AS Codigo;
+END//
+DELIMITER ;
+
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcatadoptado
 CREATE TABLE IF NOT EXISTS `tcatadoptado` (
   `Adoptado` int(11) NOT NULL AUTO_INCREMENT,
@@ -185,13 +197,16 @@ CREATE TABLE IF NOT EXISTS `tnidos` (
   KEY `FK_TNidos_tusuarios` (`Adopta`),
   CONSTRAINT `FK_TNidos_TCatAdoptado` FOREIGN KEY (`Adoptado`) REFERENCES `tcatadoptado` (`Adoptado`),
   CONSTRAINT `FK_TNidos_tusuarios` FOREIGN KEY (`Adopta`) REFERENCES `tusuarios` (`Nick`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tnidos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tnidos` DISABLE KEYS */;
 INSERT INTO `tnidos` (`Id`, `Nido`, `Huevos`, `Adoptado`, `Adopta`) VALUES
 	(3, 'Nido 1', 5, 2, NULL),
-	(4, 'Nido 2', 21, 2, NULL);
+	(4, 'Nido 2', 21, 1, 'u1@u.com'),
+	(5, 'Nido 3', 34, 2, NULL),
+	(6, 'Nido 4', 31, 1, 'u1@u.com'),
+	(7, 'Nido 5', 12, 2, NULL);
 /*!40000 ALTER TABLE `tnidos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla bdcamptort_d6wn4.tpublicaciones
