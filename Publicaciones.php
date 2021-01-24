@@ -342,7 +342,7 @@
 						if($_SESSION['Tipo'] == '1'){
 			?>
 							<div class="row">
-								<div class="col-12"><br><br></div>
+								<div class="col-12"><br></div>
 								<div class="col-12" align="center">
 									<h3><b>Crear publicacion</b></h3>
 								</div>
