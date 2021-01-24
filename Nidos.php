@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include "php/Conexion.php";
 	if(isset($_SESSION["Logueado"])){
 		if($_SESSION['Logueado']){
 			if($_SESSION['Tipo'] == '1'){
@@ -382,17 +383,37 @@
 			</div>
 			<div class="row">
 				<div class="col-12">
-						
-						<div class="col-12" align="center">
-							<div class="card" style="width: 18rem;">
-								<img class="card-img-top" src="Imagenes/Nido.png" alt="Card image cap">
-								<div class="card-body">
-									<h5 class="card-title">Card title</h5>
-									<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-									<a href="#" class="btn btn-outline-danger">Eliminar</a>
+						<?php
+							$Conn = new ConexionClass();
+							$MyConn = $Conn->Conectar();
+							$Solicitud = null;
+							$Consulta = "CALL `SP05ListaNidos`();";
+							if( !$Solicitud = $MyConn->prepare( $Consulta ) ){
+								echo '{}';
+							}
+
+							if( !$Solicitud->execute() ){
+								echo '{}';
+							}else{
+								$Resultado = $Solicitud->get_result();
+								$Respuesta = $Resultado->fetch_assoc();
+						?>
+
+								<div class="col-12" align="center">
+									<div class="card" style="width: 18rem;">
+										<img class="card-img-top" src="Imagenes/Nido.png" alt="Card image cap">
+										<div class="card-body">
+											<h5 class="card-title">Card title</h5>
+											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+											<a href="#" class="btn btn-outline-danger">Eliminar</a>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
+
+						<?php
+							}
+						?>
+						
 
 				</div>
 			</div>
