@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include "php/Conexion.php";
 	if(!isset($_SESSION["Logueado"])){
 		header('location:index.php');
 	}
@@ -343,6 +344,41 @@
 				<div class="col-12" align="center">
 					<h3><b>Adopcion</b></h3>
 				</div>
+			</div>
+			<div class="row">
+				<?php
+					$Conn = new ConexionClass();
+					$MyConn = $Conn->Conectar();
+					$Solicitud = null;
+					$Consulta = "CALL `SP06ListaNidosNoAdoptados`();";
+					if( !$Solicitud = $MyConn->prepare( $Consulta ) ){
+						echo '{}';
+					}
+
+					if( !$Solicitud->execute() ){
+						echo '{}';
+					}else{
+						$Resultado = $Solicitud->get_result();
+
+						while ($Respuesta = $Resultado->fetch_assoc()) {
+				?>
+
+							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" align="center">
+								<div class="card" style="width: 18rem;">
+									<img class="card-img-top" src="Imagenes/Nido.png" alt="Card image cap">
+									<div class="card-body">
+										<h4 class="card-title"><?php echo $Respuesta["Nido"]; ?></h4>
+										<h5 class="card-title"><?php echo $Respuesta["Huevos"] . ' Huevos'; ?></h5>
+										<p class="card-text"></p>
+										<a href="#" class="btn btn-outline-success">Adoptar</a>
+									</div>
+								</div>
+							</div>
+
+				<?php
+						}
+					}
+				?>
 			</div>
 		</div>
 	</body>
