@@ -338,4 +338,33 @@
 			</div>
 		</div>
 	</body>
+	<?php
+		include('php/scripts.php');
+	?>
+	<script type="text/javascript">
+		let sys = {
+			Init : function(){
+				try{
+					$('.carousel').carousel({
+						interval: 3000
+					})
+
+					$(function() {
+						$("#Toggle").on("click", function() {
+							if ($(".item").hasClass("active")) {
+								$(".item").removeClass("active");
+								$(this).find("a").html("<i class='fas fa-bars'></i>");
+							} else {
+								$(".item").addClass("active");
+								$(this).find("a").html("<i class='fas fa-times'></i>");
+							}
+						});
+					});
+				}catch(Ex){
+					console.error(Ex);
+				}
+			}
+		}
+		window.onload = sys.Init();
+	</script>
 </html>
