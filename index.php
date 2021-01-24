@@ -486,7 +486,7 @@
 			</div>
 			<div class="row" align="center">
 				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-xs-1 offset-sm-1 offset-md-1 offset-lg-1" align="center" style="overflow: scroll;">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.7629664244305!2d-102.38242159623512!3d17.98902490614004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x843141c106f2c7d5%3A0x277cc00245e44b5c!2sEl%20Habillal%2C%20Mich.!5e1!3m2!1ses-419!2smx!4v1603764266955!5m2!1ses-419!2smx" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.7629664244305!2d-102.38242159623512!3d17.98902490614004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x843141c106f2c7d5%3A0x277cc00245e44b5c!2sEl%20Habillal%2C%20Mich.!5e1!3m2!1ses-419!2smx!4v1603764266955!5m2!1ses-419!2smx" width="600" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 				</div>
 			</div>
 			<div class="row">
@@ -499,7 +499,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-xs-1 offset-sm-1 offset-md-1 offset-lg-1">
-					<div id="Mapa" style="width: 100%; height: 500px;"></div>
+					<div id="Mapa" style="width: 90%; height: 500px;"></div>
 				</div>
 			</div>
 			<div class="row">
