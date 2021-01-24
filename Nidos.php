@@ -347,6 +347,14 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-12">
+					<br>
+				</div>
+				<div class="col-12" align="center">
+					<h3><b>Nidos</b></h3>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-10 offset-1">
 					<form method="POST" action="">
 						<div class="row">
