@@ -301,8 +301,18 @@
 							<li class="item"><a href="Adoptar.php">Adopta</a></li>
 							<li class="item"><a href="Contacto.php">Contacto</a><li>
 							<?php
+								$Correo = '';
+								$Celular = '';
+								$Nombre = '';
+								$AP = '';
+								$AM = '';
 								if(isset($_SESSION["Logueado"])){
 									if($_SESSION["Logueado"]){
+										$Correo = $_SESSION['Correo'];
+										$Celular = $_SESSION['Celular'];
+										$AP = $_SESSION["APaterno"];
+										$AM = $_SESSION["AMaterno"];
+										$Nombre = $_SESSION['Nombre'];
 							?>
 										<li class="item button"><a href="php/CerrarSesion.php">Cerrar sesi&oacute;n</a></li>
 							<?php
@@ -343,41 +353,41 @@
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-user bigicon"></i></span>
 									<div class="col-md-8 offset-md-2">
-										<input id="fname" name="name" type="text" placeholder="Nombre(s)" class="form-control">
+										<input id="Nombre" name="Nombre" type="text" placeholder="Nombre(s)" class="form-control" value="<?php echo $Nombre; ?>">
 									</div>
 								</div>
 
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-user bigicon"></i></span>
 									<div class="col-md-8 offset-md-2">
-										<input id="lname" name="name" type="text" placeholder="Apellido paterno" class="form-control">
+										<input id="APaterno" name="APaterno" type="text" placeholder="Apellido paterno" class="form-control" value="<?php echo $AP; ?>">
 									</div>
 								</div>
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-user bigicon"></i></span>
 									<div class="col-md-8 offset-md-2">
-										<input id="lname" name="name" type="text" placeholder="Apellido materno" class="form-control">
+										<input id="AMaterno" name="AMaterno" type="text" placeholder="Apellido materno" class="form-control"  value="<?php echo $AM; ?>">
 									</div>
 								</div>
 
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
 									<div class="col-md-8 offset-md-2">
-										<input id="email" name="email" type="text" placeholder="Correo" class="form-control">
+										<input id="Correo" name="Correo" type="text" placeholder="Correo" class="form-control" value="<?php echo $Correo; ?>">
 									</div>
 								</div>
 
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
 									<div class="col-md-8 offset-md-2">
-										<input id="phone" name="phone" type="text" placeholder="Telefono" class="form-control">
+										<input id="Telefono" name="Telefono" type="text" placeholder="Telefono" class="form-control" value="<?php echo $Celular; ?>">
 									</div>
 								</div>
 
 								<div class="form-group">
 									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
 									<div class="col-md-8 offset-md-2">
-										<textarea class="form-control" id="message" name="message" placeholder="Escriba aqui su mensaje para nosotros." rows="5"></textarea>
+										<textarea class="form-control" id="Mensaje" name="Mensaje" placeholder="Escriba aqui su mensaje para nosotros." rows="5"></textarea>
 									</div>
 								</div>
 
