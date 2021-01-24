@@ -336,6 +336,14 @@
 					</nav>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-12">
+					<br>
+				</div>
+				<div class="col-12" align="center">
+					<h3><b>Adopcion</b></h3>
+				</div>
+			</div>
 		</div>
 	</body>
 	<?php
