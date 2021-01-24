@@ -396,21 +396,29 @@
 								echo '{}';
 							}else{
 								$Resultado = $Solicitud->get_result();
-								$Respuesta = $Resultado->fetch_assoc();
+
+								while ($Respuesta = $Resultado->fetch_assoc()) {
 						?>
 
-								<div class="col-12" align="center">
-									<div class="card" style="width: 18rem;">
-										<img class="card-img-top" src="Imagenes/Nido.png" alt="Card image cap">
-										<div class="card-body">
-											<h5 class="card-title">Card title</h5>
-											<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-											<a href="#" class="btn btn-outline-danger">Eliminar</a>
+									<div class="col-12" align="center">
+										<div class="card" style="width: 18rem;">
+											<img class="card-img-top" src="Imagenes/Nido.png" alt="Card image cap">
+											<div class="card-body">
+												<h4 class="card-title"><?php echo $Respuesta["Nido"]; ?></h4>
+												<h5 class="card-title"><?php echo $Respuesta["Huevos"] . ' Huevos'; ?></h5>
+												<p class="card-text">
+													<h6>
+														<span class="badge badge-<?php echo $Respuesta['Adoptado'] == '1' ? "success" : "danger" ?>"><?php echo $Respuesta['Adoptado'] == '1' ? "Adoptado" : "No adoptado" ?></span>
+													</h6>
+													<br>
+												</p>
+												<a href="#" class="btn btn-outline-danger">Eliminar</a>
+											</div>
 										</div>
 									</div>
-								</div>
 
 						<?php
+								}
 							}
 						?>
 						
