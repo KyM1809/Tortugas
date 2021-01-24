@@ -83,6 +83,14 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento bdcamptort_d6wn4.SP06ListaNidosNoAdoptados
+DELIMITER //
+CREATE PROCEDURE `SP06ListaNidosNoAdoptados`()
+BEGIN
+	SELECT * FROM tnidos WHERE tnidos.Adoptado = 2;
+END//
+DELIMITER ;
+
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcatadoptado
 CREATE TABLE IF NOT EXISTS `tcatadoptado` (
   `Adoptado` int(11) NOT NULL AUTO_INCREMENT,
@@ -90,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `tcatadoptado` (
   PRIMARY KEY (`Adoptado`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tcatadoptado: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tcatadoptado: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tcatadoptado` DISABLE KEYS */;
 INSERT INTO `tcatadoptado` (`Adoptado`, `Descripcion`) VALUES
 	(1, 'Adoptado'),
@@ -169,7 +177,7 @@ CREATE TABLE IF NOT EXISTS `tnidos` (
   CONSTRAINT `FK_TNidos_tusuarios` FOREIGN KEY (`Adopta`) REFERENCES `tusuarios` (`Nick`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tnidos: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tnidos: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tnidos` DISABLE KEYS */;
 INSERT INTO `tnidos` (`Id`, `Nido`, `Huevos`, `Adoptado`, `Adopta`) VALUES
 	(3, 'Nido 1', 5, 2, NULL),
@@ -207,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `tusuarios` (
   CONSTRAINT `FK_tusuarios_tcattipousuario` FOREIGN KEY (`TipoUsuario`) REFERENCES `tcattipousuario` (`TipoUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tusuarios: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tusuarios: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tusuarios` DISABLE KEYS */;
 INSERT INTO `tusuarios` (`Nick`, `Nombre`, `ApellidoPaterno`, `ApellidoMaterno`, `Celular`, `Correo`, `Contrasena`, `TipoUsuario`) VALUES
 	('u1@u.com', 'Eduardo', 'Velazquez', 'Cerda', '753', 'u1@u.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 1),
