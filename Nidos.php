@@ -289,6 +289,12 @@
 		</style>
 	</head>
 	<body>
+		<div class="social-bar">
+			<a href="https://www.facebook.com/alonsosurf2108/" class="icon icon-facebook" target="_blank"></a>
+			<a href="https://twitter.com/DevCodela" class="icon icon-twitter" target="_blank"></a>
+			<a href="https://www.youtube.com/c/devcodela" class="icon icon-youtube" target="_blank"></a>
+			<a href="https://www.instagram.com/habillalcampamento/" class="icon icon-instagram" target="_blank"></a>
+		</div>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 Header">
@@ -308,7 +314,7 @@
 								}
 							?>
 							<li class="item"><a href="Adoptar.php">Adopta</a></li>
-							<li class="item"><a href="#">Contacto</a><li>
+							<li class="item"><a href="Contacto.php">Contacto</a><li>
 							<?php
 								if(isset($_SESSION["Logueado"])){
 									if($_SESSION["Logueado"]){
