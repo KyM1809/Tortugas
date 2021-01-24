@@ -29,9 +29,9 @@ CREATE PROCEDURE `SP01RegistrarUsuario`(
 )
 BEGIN
 	INSERT INTO tusuarios
-		(Nombre, ApellidoPaterno, ApellidoMaterno, Celular, Correo, Contrasena, TipoUsuario)
+		(Nick, Nombre, ApellidoPaterno, ApellidoMaterno, Celular, Correo, Contrasena, TipoUsuario)
 	VALUES
-		(Nom, Ap, Am, Cel, Cor, Con, Tip);
+		(Correo, Nom, Ap, Am, Cel, Cor, Con, Tip);
 	SELECT '1' AS Codigo;
 END//
 DELIMITER ;
@@ -54,7 +54,7 @@ CREATE PROCEDURE `SP03ObtenerDatosUsuario`(
 	IN `PContrasena` VARCHAR(130)
 )
 BEGIN
-	SELECT Nick AS Usuario, Nombre, ApellidoPaterno, ApellidoMaterno, Celular, TipoUsuario
+	SELECT Nick AS Usuario, Nombre, ApellidoPaterno, ApellidoMaterno, Celular, TipoUsuario, Celular, Correo
 	FROM tusuarios
 	WHERE Nick = PUsuario AND Contrasena = PContrasena;
 END//
@@ -91,7 +91,7 @@ INSERT INTO `tcattipousuario` (`TipoUsuario`, `Descripcion`) VALUES
 -- Volcando estructura para tabla bdcamptort_d6wn4.tlogconsultas
 CREATE TABLE IF NOT EXISTS `tlogconsultas` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Usuario` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Usuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Consulta` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `FechaHora` datetime NOT NULL,
   PRIMARY KEY (`Id`),
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `tlogconsultas` (
 -- Volcando estructura para tabla bdcamptort_d6wn4.tloginicio
 CREATE TABLE IF NOT EXISTS `tloginicio` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Usuario` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Usuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `FechaHora` datetime NOT NULL,
   `Contrasena` varchar(130) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`Id`),
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `tnidos` (
   `Nido` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Huevos` int(11) NOT NULL,
   `Adoptado` int(11) NOT NULL,
-  `Adopta` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Adopta` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `FK_TNidos_TCatAdoptado` (`Adoptado`),
   KEY `FK_TNidos_tusuarios` (`Adopta`),
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `tpublicaciones` (
   `Publicacion` int(11) NOT NULL AUTO_INCREMENT,
   `Texto` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `FechaHora` datetime NOT NULL,
-  `Usuario` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Usuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `Token` varchar(130) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`Publicacion`),
   KEY `FK_TPublicaciones_tusuarios` (`Usuario`),
