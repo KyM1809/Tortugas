@@ -346,7 +346,7 @@
 								<div class="col-12" align="center">
 									<h3><b>Crear publicacion</b></h3>
 								</div>
-								<div class="col-12">
+								<div class="col-10 offset-1">
 									<form>
 										<div class="row">
 											<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1" align="center">
