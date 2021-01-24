@@ -297,7 +297,7 @@
 									if($_SESSION['Logueado']){
 										if($_SESSION['Tipo'] == '1'){
 							?>
-											<li class="item"><a href="php/Nidos.php">Nidos</a></li>
+											<li class="item"><a href="Nidos.php">Nidos</a></li>
 							<?php
 										}
 									}
