@@ -8,12 +8,6 @@
 		private $ObjConnection;
 
 		public function __construct(){
-			/*
-			$this->DbName = "bitacoraservicios";
-			$this->DbUser = "root";
-			$this->DbPass = "12345678";
-			$this->Server = "localhost";
-			*/
 			$this->DbName = "bdcamptort_d6wn4";
 			$this->DbUser = "root";
 			$this->DbPass = "Gzxt1234";
