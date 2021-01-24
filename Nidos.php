@@ -356,18 +356,18 @@
 			</div>
 			<div class="row">
 				<div class="col-10 offset-1">
-					<form method="POST" action="">
+					<form method="POST" action="php/Nido.php">
 						<div class="row">
 							<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 offset-xs-1 offset-sm-1">
 								<div class="form-group">
 									<label>Nombre de nido</label>
-									<input type="text" name="NombreNido" class="form-control">
+									<input type="text" name="NombreNido" class="form-control" autocomplete="off">
 								</div>
 							</div>
 							<div class="col-xs-10 col-sm-10 col-md-4 col-lg-4 offset-xs-1 offset-sm-1">
 								<div class="form-group">
 									<label>Numero de huevos</label>
-									<input type="number" name="NumeroHuevos" class="form-control">
+									<input type="number" name="NumeroHuevos" class="form-control" autocomplete="off">
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4" align="center">
@@ -375,8 +375,25 @@
 									<button class="btn btn-outline-warning" type="submit">Guardar</button>
 								</div>
 							</div>
+							<input type="hidden" name="Id" value="1">
 						</div>
 					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+						
+						<div class="col-12" align="center">
+							<div class="card" style="width: 18rem;">
+								<img class="card-img-top" src="Imagenes/Nido.png" alt="Card image cap">
+								<div class="card-body">
+									<h5 class="card-title">Card title</h5>
+									<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+									<a href="#" class="btn btn-outline-danger">Eliminar</a>
+								</div>
+							</div>
+						</div>
+
 				</div>
 			</div>
 		</div>
