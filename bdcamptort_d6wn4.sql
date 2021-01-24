@@ -91,6 +91,16 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento bdcamptort_d6wn4.SP07ListaNidosEnAdopcion
+DELIMITER //
+CREATE PROCEDURE `SP07ListaNidosEnAdopcion`(
+	IN `PUsuario` VARCHAR(50)
+)
+BEGIN
+	SELECT * FROM tnidos WHERE tnidos.Adoptado = 1 AND tnidos.Adopta = PUsuario;
+END//
+DELIMITER ;
+
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcatadoptado
 CREATE TABLE IF NOT EXISTS `tcatadoptado` (
   `Adoptado` int(11) NOT NULL AUTO_INCREMENT,
