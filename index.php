@@ -427,6 +427,14 @@
 			</div>
 			<div class="row">
 				<div class="col-12">
+					
+				</div>
+				<div class="col-12" align="center">
+					<h3><b>Campamento tortuguero El Habillal</b></h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
 					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 						<ol class="carousel-indicators">
 							<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
