@@ -371,7 +371,10 @@
 										<h4 class="card-title"><?php echo $Respuesta["Nido"]; ?></h4>
 										<h5 class="card-title"><?php echo $Respuesta["Huevos"] . ' Huevos'; ?></h5>
 										<p class="card-text"></p>
-										<a href="#" class="btn btn-outline-success">Adoptar</a>
+										<form method="POST" action="VerificarAdopcion.php">
+											<button type="submit" class="btn btn-outline-success">Adoptar</button>
+											<input type="hidden" name="IdNido" value="<?php echo $Respuesta['Id']; ?>">
+										</form>
 									</div>
 								</div>
 							</div>
