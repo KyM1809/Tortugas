@@ -47,7 +47,11 @@
 					
 					$_SESSION["Usuario"] = $this->Respuesta["Usuario"];
 					$_SESSION["Nombre"] = $this->Respuesta["Nombre"];
+					$_SESSION["APaterno"] = $this->Respuesta["ApellidoPaterno"];
+					$_SESSION["AMaterno"] = $this->Respuesta["ApellidoMaterno"];
 					$_SESSION["Tipo"] = $this->Respuesta["TipoUsuario"];
+					$_SESSION["Celular"] = $this->Respuesta["Celular"];
+					$_SESSION["Correo"] = $this->Respuesta["Correo"];
 					$_SESSION["Logueado"] = true;
 					#print_r($this->Respuesta);
 					#print_r($_SESSION);
