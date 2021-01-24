@@ -362,6 +362,14 @@
 												<input type="file" name="Videos" class="form-control">
 											</div>
 										</div>
+										<div class="row">
+											<dir class="col-12"><br></dir>
+										</div>
+										<div class="row">
+											<div class="col-12" align="center">
+												<button type="submit" class="btn btn-outline-info">Publicar</button>
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
