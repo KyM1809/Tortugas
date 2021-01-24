@@ -1,6 +1,16 @@
 <?php
 	session_start();
-	if(!isset($_SESSION["Logueado"])){
+	if(isset($_SESSION["Logueado"])){
+		if($_SESSION['Logueado']){
+			if($_SESSION['Tipo'] == '1'){
+				#
+			}else{
+				header('location:Inicio.php');
+			}
+		}else{
+			header('location:Inicio.php');
+		}
+	}else{
 		header('location:Inicio.php');
 	}
 ?>
