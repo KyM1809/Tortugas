@@ -342,7 +342,7 @@
 			</div>
 			<div class="row">
 				<div class="col-12">
-					<form>
+					<form method="POST" action="">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
 								<div class="form-group">
@@ -356,16 +356,9 @@
 									<input type="number" name="NumeroHuevos" class="form-control">
 								</div>
 							</div>
-							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-								<div class="form-group">
-									<label>Numero de huevos</label>
-									<input type="number" name="NumeroHuevos" class="form-control">
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4">
-								<div class="form-group">
-									<label>Numero de huevos</label>
-									<input type="number" name="NumeroHuevos" class="form-control">
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4" align="center">
+								<div class="form-group" align="center">
+									<button class="btn btn-outline-warning" type="submit">Guardar</button>
 								</div>
 							</div>
 						</div>
@@ -374,4 +367,33 @@
 			</div>
 		</div>
 	</body>
+	<?php
+		include('php/scripts.php');
+	?>
+	<script type="text/javascript">
+		let sys = {
+			Init : function(){
+				try{
+					$('.carousel').carousel({
+						interval: 3000
+					})
+
+					$(function() {
+						$("#Toggle").on("click", function() {
+							if ($(".item").hasClass("active")) {
+								$(".item").removeClass("active");
+								$(this).find("a").html("<i class='fas fa-bars'></i>");
+							} else {
+								$(".item").addClass("active");
+								$(this).find("a").html("<i class='fas fa-times'></i>");
+							}
+						});
+					});
+				}catch(Ex){
+					console.error(Ex);
+				}
+			}
+		}
+		window.onload = sys.Init();
+	</script>
 </html>
