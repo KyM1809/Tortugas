@@ -338,45 +338,45 @@
 					<div class="well well-sm">
 						<form class="form-horizontal" method="post">
 							<fieldset>
-								<legend class="text-center header">Contacto</legend>
+								<legend class="text-center header"><b>Contacto</b></legend>
 
 								<div class="form-group">
-									<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-									<div class="col-md-8">
+									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-user bigicon"></i></span>
+									<div class="col-md-8 offset-md-2">
 										<input id="fname" name="name" type="text" placeholder="Nombre(s)" class="form-control">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-									<div class="col-md-8">
+									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-user bigicon"></i></span>
+									<div class="col-md-8 offset-md-2">
 										<input id="lname" name="name" type="text" placeholder="Apellido paterno" class="form-control">
 									</div>
 								</div>
 								<div class="form-group">
-									<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-									<div class="col-md-8">
+									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-user bigicon"></i></span>
+									<div class="col-md-8 offset-md-2">
 										<input id="lname" name="name" type="text" placeholder="Apellido materno" class="form-control">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
-									<div class="col-md-8">
+									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+									<div class="col-md-8 offset-md-2">
 										<input id="email" name="email" type="text" placeholder="Correo" class="form-control">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
-									<div class="col-md-8">
+									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
+									<div class="col-md-8 offset-md-2">
 										<input id="phone" name="phone" type="text" placeholder="Telefono" class="form-control">
 									</div>
 								</div>
 
 								<div class="form-group">
-									<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
-									<div class="col-md-8">
+									<span class="col-md-1 col-md-offset-2 offset-md-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+									<div class="col-md-8 offset-md-2">
 										<textarea class="form-control" id="message" name="message" placeholder="Escriba aqui su mensaje para nosotros." rows="7"></textarea>
 									</div>
 								</div>
