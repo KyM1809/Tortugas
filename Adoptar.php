@@ -292,6 +292,17 @@
 						<ul class="menu">
 							<li class="logo"><a href="index.php">Campamento tortuguero</a></li>
 							<li class="item"><a href="Publicaciones.php">Publicaciones</a></li>
+							<?php
+								if(isset($_SESSION['Logueado'])){
+									if($_SESSION['Logueado']){
+										if($_SESSION['Tipo'] == '1'){
+							?>
+											<li class="item"><a href="Nidos.php">Nidos</a></li>
+							<?php
+										}
+									}
+								}
+							?>
 							<li class="item"><a href="Adoptar.php">Adopta</a></li>
 							<li class="item"><a href="#">Contacto</a><li>
 							<?php
