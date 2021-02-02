@@ -31,16 +31,16 @@
 				$this->MyConnection = $this->Connection->Conectar();
 				$this->Consulta = "CALL `SP03ObtenerDatosUsuario`(?,?);";
 				if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
-					echo '{}';
+					header('location:../Inicio.php');
 				}
 				$u = $_POST["Usuario"];
 				$c = hash('sha512', $_POST["Contrasena"]);
 				if( !$this->Solicitud->bind_param("ss", $u, $c)){
-					echo '{}';
+					header('location:../Inicio.php');
 				}
 
 				if( !$this->Solicitud->execute() ){
-					echo '{}';
+					header('location:../Inicio.php');
 				}else{
 					$this->Resultado = $this->Solicitud->get_result();
 					$this->Respuesta = $this->Resultado->fetch_assoc();
