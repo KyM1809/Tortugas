@@ -4,8 +4,8 @@
 	<head>
 		<title>Registro</title>
 		<?php
-			include('php/meta.php');
-			include('php/styles.php');
+			include('php/Meta.php');
+			include('php/Styles.php');
 		?>
 		<style type="text/css">
 			/*
