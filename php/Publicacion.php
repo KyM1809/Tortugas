@@ -25,5 +25,14 @@
 			$this->Solicitud = "";
 			$this->Respuesta = "";
 		}
+
+		public function Publicar(){
+			#
+		}
+
+		public function ListarPublicaciones(){
+			#
+		}
+		
 	}
 ?>
