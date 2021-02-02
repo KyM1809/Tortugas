@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	ini_set('display_errors', 1);
 	include "Utiles.php";
 	class Publicacion{
 		private $Consulta;
@@ -64,11 +63,12 @@
 						$width = $dimensiones[0];
 						$height = $dimensiones[1];
 						$carpeta = "../Imagenes/Subidas/";
-
+						$carpeta2 = "Imagenes/Subidas/";
+						$r = rand(1, 1000000);
 						if ($tipo != 'image/jpeg' && $tipo != 'image/jpg' && $tipo != 'image/png' && $tipo != 'image/gif')
 						{
 							$reporte .= "<p style='color: red'>Error $nombre, el archivo no es una imagen.</p>";
-						}
+						}/*
 						else if($size > 1024*1024)
 						{
 							$reporte .= "<p style='color: red'>Error $nombre, el tamaño máximo permitido es 1mb</p>";
@@ -80,7 +80,7 @@
 						else if($width < 60 || $height < 60)
 						{
 							$reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura mínima permitida es de 60px</p>";
-						}
+						}*/
 						else
 						{
 							$t = '';
@@ -90,7 +90,8 @@
 							if($tipo == 'image/gif') $t = 'gif';
 
 							$src = $carpeta.$nombre;
-							$src = $carpeta.hash('sha256', $nombre.$_SESSION['Usuario'].$x).'.'.$t;
+							$src = $carpeta.hash('sha256', $nombre.$_SESSION['Usuario'].$r.$x).'.'.$t;
+							$src2 = $carpeta2.hash('sha256', $nombre.$_SESSION['Usuario'].$r.$x).'.'.$t;
 
 							//Caragamos imagenes al servidor
 							move_uploaded_file($ruta_provisional, $src);
@@ -107,7 +108,7 @@
 							if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
 								header('location:../Publicaciones.php');
 							}
-							if( !$this->Solicitud->bind_param("issi", $Id, $src, $t, $size) ){
+							if( !$this->Solicitud->bind_param("issi", $Id, $src2, $t, $size) ){
 								header('location:../Publicaciones.php');
 							}
 
