@@ -387,7 +387,7 @@
 		</div>
 	</body>
 	<?php
-		include('php/scripts.php');
+		include('php/Scripts.php');
 	?>
 	<script type="text/javascript">
 		let sys = {
