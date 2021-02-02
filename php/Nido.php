@@ -28,7 +28,8 @@
 
 		public function Crear(){
 			$this->MyConnection = $this->Connection->Conectar();
-			$this->Consulta = "CALL `SP04CrearNido`(?,?);";
+			//$this->Consulta = "CALL `SP04CrearNido`(?,?);";
+			$this->Consulta = "INSERT INTO tnidos(Nido, Huevos, Adoptado, Adopta) VALUES(?,?, 2, Null);";
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
 				echo '{}';
 			}
@@ -42,6 +43,16 @@
 				echo '{}';
 			}else{
 				header('location:../Nidos.php');
+				//echo '<br><b>ID:</b>' . $this->Connection->lastInsertId() . '<br><br><br>';
+				//echo '<br><b>ID:</b>' . $this->Connection->mysql_insert_id . '<br><br><br>';
+				//echo '<br><b>ID:</b>' . $this->Connection->insert_id . '<br><br><br>';
+				#########
+				#		#
+				#	OK	#
+				#		#
+				#########
+				//print_r($this->Solicitud);
+				//echo '<br><b>ID:</b>' . $this->Solicitud->insert_id . '<br><br><br>';
 			}
 		}
 
