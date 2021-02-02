@@ -533,7 +533,7 @@
 		</div>
 	</body>
 	<?php
-		include('php/scripts.php');
+		include('php/Scripts.php');
 	?>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDaeWicvigtP9xPv919E-RNoxfvC-Hqik&callback=iniciarMap"></script>
 	<script type="text/javascript">
