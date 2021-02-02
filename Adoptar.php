@@ -353,11 +353,11 @@
 					$Solicitud = null;
 					$Consulta = "CALL `SP06ListaNidosNoAdoptados`();";
 					if( !$Solicitud = $MyConn->prepare( $Consulta ) ){
-						echo '{}';
+						$
 					}
 
 					if( !$Solicitud->execute() ){
-						echo '{}';
+						$
 					}else{
 						$Resultado = $Solicitud->get_result();
 
