@@ -349,7 +349,7 @@
 									<h3><b>Crear publicacion</b></h3>
 								</div>
 								<div class="col-10 offset-1">
-									<form action="php/Publicacion.php" method="POST">
+									<form action="php/Publicacion.php" method="POST" enctype="multipart/form-data"/>
 										<div class="row">
 											<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1" align="center">
 												<label>Titulo</label>
