@@ -399,7 +399,6 @@
 
 						while ($Respuesta = $Resultado->fetch_assoc()) {
 				?>
-
 							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" align="center">
 								<div class="card" style="width: 18rem;">
 									<img class="card-img-top" src="Imagenes/Nido.png" alt="Card image cap">
@@ -421,7 +420,6 @@
 									</div>
 								</div>
 							</div>
-
 				<?php
 						}
 					}
