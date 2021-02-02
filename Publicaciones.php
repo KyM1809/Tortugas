@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	include "php/Conexion.php";
 	if(!isset($_SESSION["Logueado"])){
 		header('location:index.php');
 	}
@@ -351,6 +352,10 @@
 									<form action="php/Publicacion.php" method="POST">
 										<div class="row">
 											<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1" align="center">
+												<label>Titulo</label>
+												<input type="text" name="Titulo" class="form-control">
+											</div>
+											<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1" align="center">
 												<textarea id="Texto" name="Texto" cols="20" rows="5" class="form-control" autocomplete="off"></textarea>
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4" align="center">
@@ -378,6 +383,40 @@
 					}
 				}
 			?>
+
+			<?php
+				$Conn = new ConexionClass();
+					$MyConn = $Conn->Conectar();
+					$Solicitud = null;
+					$Consulta = "CALL `SP09ListaPublicaciones`();";
+					if( !$Solicitud = $MyConn->prepare( $Consulta ) ){
+						echo '{}';
+					}
+
+					if( !$Solicitud->execute() ){
+						echo '{}';
+					}else{
+						$Resultado = $Solicitud->get_result();
+
+						while ($Respuesta = $Resultado->fetch_assoc()) {
+			?>
+							<div class="row">
+								<div class="col-10 offset-1" style="margin-top: 20px;">
+									<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+										<div class="card-block" style="padding-left: 20px;">
+											<h4 class="card-title" style="color: white;"><?php echo $Respuesta["Titulo"]; ?></h4>
+											<p class="card-text" style="color: white;"><?php echo $Respuesta["Texto"]; ?></p>
+											<center><a href="#" class="btn btn-primary">Ver mas</a></center>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							
+			<?php
+						}
+					}
+				?>
 		</div>
 	</body>
 	<?php
