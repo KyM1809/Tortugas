@@ -356,6 +356,7 @@
 												<input type="text" name="Titulo" class="form-control">
 											</div>
 											<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 offset-sm-1 offset-md-1 offset-lg-1" align="center">
+												<label>Texto</label>
 												<textarea id="Texto" name="Texto" cols="20" rows="5" class="form-control" autocomplete="off"></textarea>
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4" align="center">
