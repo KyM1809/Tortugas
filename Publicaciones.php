@@ -387,40 +387,56 @@
 
 			<?php
 				$Conn = new ConexionClass();
-					$MyConn = $Conn->Conectar();
-					$Solicitud = null;
-					$Consulta = "CALL `SP09ListaPublicaciones`();";
-					if( !$Solicitud = $MyConn->prepare( $Consulta ) ){
-						echo '{}';
-					}
+				$MyConn = $Conn->Conectar();
+				$Solicitud = null;
+				$Consulta = "CALL `SP09ListaPublicaciones`();";
+				if( !$Solicitud = $MyConn->prepare( $Consulta ) ){
+					echo '{}';
+				}
 
-					if( !$Solicitud->execute() ){
-						echo '{}';
-					}else{
-						$Resultado = $Solicitud->get_result();
+				if( !$Solicitud->execute() ){
+					echo '{}';
+				}else{
+					$Resultado = $Solicitud->get_result();
 
-						while ($Respuesta = $Resultado->fetch_assoc()) {
+					while ($Respuesta = $Resultado->fetch_assoc()) {
+						$Conn2 = new ConexionClass();
+						$MyConn2 = $Conn2->Conectar();
+						$Solicitud2 = null;
+						$Consulta2 = "CALL `SP10ImagenPrincipal`(?);";
+						if( !$Solicitud2 = $MyConn2->prepare( $Consulta2 ) ){
+							echo '{}';
+						}
+						if( !$Solicitud2->bind_param("i", $Respuesta["Publicacion"]) ){
+							#
+						}
+						if( !$Solicitud2->execute() ){
+							echo '{}';
+						}else{
+							$Resultado2 = $Solicitud2->get_result();
+							$Respuesta2 = $Resultado2->fetch_assoc();
+						}
 			?>
-							<div class="row">
-								<div class="col-10 offset-1" style="margin-top: 20px;">
-									<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+						<div class="row">
+							<div class="col-10 offset-1" style="margin-top: 20px;">
+								<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+									<br>
+									<div class="card-block" style="padding-left: 20px;">
+										<h4 class="card-title" style="color: white;"><?php echo $Respuesta["Titulo"]; ?></h4>
+										<center><img class="img-thumbnail" src="<?php echo $Respuesta2["Archivo"]; ?>" style="width: 300px;"></center>
+										<p class="card-text" style="color: white;"><?php echo $Respuesta["Texto"]; ?></p>
+										<center><a href="#" class="btn btn-primary">Ver mas</a></center>
 										<br>
-										<div class="card-block" style="padding-left: 20px;">
-											<h4 class="card-title" style="color: white;"><?php echo $Respuesta["Titulo"]; ?></h4>
-											<img class="thumbnail" src="">
-											<p class="card-text" style="color: white;"><?php echo $Respuesta["Texto"]; ?></p>
-											<center><a href="#" class="btn btn-primary">Ver mas</a></center>
-											<br>
-										</div>
 									</div>
 								</div>
 							</div>
+						</div>
 
 							
 			<?php
-						}
 					}
-				?>
+				}
+			?>
 		</div>
 	</body>
 	<?php
