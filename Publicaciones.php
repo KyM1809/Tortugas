@@ -361,7 +361,7 @@
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4" align="center">
 												<label>Imagenes</label>
-												<input type="file" name="Imagenes" class="form-control">
+												<input type="file" name="Imagenes[]" class="form-control" multiple>
 											</div>
 											<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 offset-md-4 offset-lg-4" align="center">
 												<label>Videos</label>
