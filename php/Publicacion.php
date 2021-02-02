@@ -101,11 +101,22 @@
 							// Lectura y escritura para el propietario, lectura para los demás
 							chmod($src, 0644);
 
-							//Codigo para insertar imagenes a tu Base de datos.
-							//Sentencia SQL
+							$this->MyConnection = $this->Connection->Conectar();
+							$this->Consulta = "INSERT INTO tmultimediapublicacion (Publicacion, Archivo, Extension, Tamano) VALUES (?, ?, ?, ?);";
+							//$this->Consulta = "INSERT INTO tnidos(Nido, Huevos, Adoptado, Adopta) VALUES(?,?, 2, Null);";
+							if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
+								header('location:../Publicaciones.php');
+							}
+							if( !$this->Solicitud->bind_param("issi", $Id, $src, $t, $size) ){
+								header('location:../Publicaciones.php');
+							}
 
-							echo "<p style='color: blue'>La imagen $nombre ha sido subida con éxito</p>";
-							echo '<img src="' . $src . '">';
+							if( !$this->Solicitud->execute() ){
+								header('location:../Publicaciones.php');
+							}else{}
+
+							#echo "<p style='color: blue'>La imagen $nombre ha sido subida con éxito</p>";
+							#echo '<img src="' . $src . '">';
 						}
 					}
 
