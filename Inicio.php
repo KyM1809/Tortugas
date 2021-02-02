@@ -252,6 +252,6 @@
 		</div>
 	</body>
 	<?php
-		include('php/scripts.php');
+		include('php/Scripts.php');
 	?>
 </html>
