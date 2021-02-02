@@ -403,10 +403,12 @@
 							<div class="row">
 								<div class="col-10 offset-1" style="margin-top: 20px;">
 									<div class="card card-inverse" style="background-color: #333; border-color: #333;">
+										<br>
 										<div class="card-block" style="padding-left: 20px;">
 											<h4 class="card-title" style="color: white;"><?php echo $Respuesta["Titulo"]; ?></h4>
 											<p class="card-text" style="color: white;"><?php echo $Respuesta["Texto"]; ?></p>
 											<center><a href="#" class="btn btn-primary">Ver mas</a></center>
+											<br>
 										</div>
 									</div>
 								</div>
