@@ -1,6 +1,7 @@
 <?php
 	session_start();
-
+	ini_set('display_errors', 1);
+	include "Utiles.php";
 	class Publicacion{
 		private $Consulta;
 		private $Resultado;
@@ -28,24 +29,22 @@
 
 		public function Publicar(){
 			$this->MyConnection = $this->Connection->Conectar();
-			$this->Consulta = "CALL `SP04CrearNido`(?,?);";
+			$this->Consulta = "INSERT INTO tpublicaciones (Titulo, Texto, FechaHora, Usuario, Token) VALUES (?, ?, now(), ?, 'VACIO');";
 			//$this->Consulta = "INSERT INTO tnidos(Nido, Huevos, Adoptado, Adopta) VALUES(?,?, 2, Null);";
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
 				echo '{}';
 			}
-			$nom = $_POST["NombreNido"];
-			$num = $_POST["NumeroHuevos"];
-			if( !$this->Solicitud->bind_param("si", $nom, $num)){
+			$Titulo = $_POST["Titulo"]; 
+			$Texto = $_POST["Texto"];
+			$Usuario = $_SESSION["Usuario"];
+			if( !$this->Solicitud->bind_param("sss", $Titulo, $Texto, $Usuario) ){
 				echo '{}';
 			}
 
 			if( !$this->Solicitud->execute() ){
 				echo '{}';
 			}else{
-				header('location:../Nidos.php');
-				//echo '<br><b>ID:</b>' . $this->Connection->lastInsertId() . '<br><br><br>';
-				//echo '<br><b>ID:</b>' . $this->Connection->mysql_insert_id . '<br><br><br>';
-				//echo '<br><b>ID:</b>' . $this->Connection->insert_id . '<br><br><br>';
+				header('location:../Publicaciones.php');
 				#########
 				#		#
 				#	OK	#
@@ -56,9 +55,16 @@
 			}
 		}
 
-		public function ListarPublicaciones(){
-			#
-		}
+	}
 
+	if (isset($_SESSION['Logueado'])) {
+		if($_SESSION['Logueado']){
+			$Obj = new Publicacion();
+			$Obj->Publicar();
+		}else{
+			header('location:../Publicaciones.php');
+		}
+	}else{
+		header('location:../Publicaciones.php');
 	}
 ?>
