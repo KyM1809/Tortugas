@@ -415,6 +415,11 @@
 										<a href="#" class="btn btn-outline-danger">Eliminar</a>
 									</div>
 								</div>
+								<div class="row">
+									<div class="col-12">
+										<br>
+									</div>
+								</div>
 							</div>
 
 				<?php
