@@ -31,17 +31,17 @@
 			$this->Consulta = "INSERT INTO tpublicaciones (Titulo, Texto, FechaHora, Usuario, Token) VALUES (?, ?, now(), ?, 'VACIO');";
 			//$this->Consulta = "INSERT INTO tnidos(Nido, Huevos, Adoptado, Adopta) VALUES(?,?, 2, Null);";
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
-				echo '{}';
+				header('location:../Publicaciones.php');
 			}
 			$Titulo = $_POST["Titulo"]; 
 			$Texto = $_POST["Texto"];
 			$Usuario = $_SESSION["Usuario"];
 			if( !$this->Solicitud->bind_param("sss", $Titulo, $Texto, $Usuario) ){
-				echo '{}';
+				header('location:../Publicaciones.php');
 			}
 
 			if( !$this->Solicitud->execute() ){
-				echo '{}';
+				header('location:../Publicaciones.php');
 			}else{
 				//header('location:../Publicaciones.php');
 				//print_r($this->Solicitud);
