@@ -44,23 +44,80 @@
 			if( !$this->Solicitud->execute() ){
 				echo '{}';
 			}else{
-				header('location:../Publicaciones.php');
+				//header('location:../Publicaciones.php');
 				//print_r($this->Solicitud);
 				//echo '<br><b>ID:</b>' . $this->Solicitud->insert_id . '<br><br><br>';
 
 				$Id = $this->Solicitud->insert_id;
 
+				if (isset($_FILES["Imagenes"]))
+				{
+					$reporte = null;
+					for($x=0; $x<count($_FILES["Imagenes"]["name"]); $x++)
+					{
+						$file = $_FILES["Imagenes"];
+						$nombre = $file["name"][$x];
+						$tipo = $file["type"][$x];
+						$ruta_provisional = $file["tmp_name"][$x];
+						$size = $file["size"][$x];
+						$dimensiones = getimagesize($ruta_provisional);
+						$width = $dimensiones[0];
+						$height = $dimensiones[1];
+						$carpeta = "../Imagenes/Subidas/";
+
+						if ($tipo != 'image/jpeg' && $tipo != 'image/jpg' && $tipo != 'image/png' && $tipo != 'image/gif')
+						{
+							$reporte .= "<p style='color: red'>Error $nombre, el archivo no es una imagen.</p>";
+						}/*
+						else if($size > 1024*1024)
+						{
+							$reporte .= "<p style='color: red'>Error $nombre, el tamaño máximo permitido es 1mb</p>";
+						}
+						else if($width > 500 || $height > 500)
+						{
+							$reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura máxima permitida es de 500px</p>";
+						}
+						else if($width < 60 || $height < 60)
+						{
+							$reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura mínima permitida es de 60px</p>";
+						}*/
+						else
+						{
+							$t = '';
+							if($tipo == 'image/jpeg') $t = 'jpeg';
+							if($tipo == 'image/jpg') $t = 'jpg';
+							if($tipo == 'image/png') $t = 'png';
+							if($tipo == 'image/gif') $t = 'gif';
+
+							$src = $carpeta.$nombre;
+							$src = $carpeta.hash('sha256', $nombre.$_SESSION['Usuario'].$x).'.'.$t;
+
+							//Caragamos imagenes al servidor
+							move_uploaded_file($ruta_provisional, $src);       
+
+							//Codigo para insertar imagenes a tu Base de datos.
+							//Sentencia SQL
+
+							echo "<p style='color: blue'>La imagen $nombre ha sido subida con éxito</p>";
+						}
+					}
+
+					echo $reporte;
+				}
+
+
+				/*
 				//Si se quiere subir una imagen
 				if (isset($_POST['subir'])) {
 					//Recogemos el archivo enviado por el formulario
-					$archivo = $_FILES['archivo']['name'];
-					$encarchivo = hash('sha-256', $_FILES['archivo']['name']);
+					$archivo = $_FILES['Imagenes']['name'];
+					$encarchivo = hash('sha-256', $_FILES['Imagenes']['name']);
 					//Si el archivo contiene algo y es diferente de vacio
 					if (isset($archivo) && $archivo != "") {
 						//Obtenemos algunos datos necesarios sobre el archivo
-						$tipo = $_FILES['archivo']['type'];
-						$tamano = $_FILES['archivo']['size'];
-						$temp = $_FILES['archivo']['tmp_name'];
+						$tipo = $_FILES['Imagenes']['type'];
+						$tamano = $_FILES['Imagenes']['size'];
+						$temp = $_FILES['Imagenes']['tmp_name'];
 						//Se comprueba si el archivo a cargar es correcto observando su extensión y tamaño
 						if (!((strpos($tipo, "gif") || strpos($tipo, "jpeg") || strpos($tipo, "jpg") || strpos($tipo, "png")) && ($tamano < 2000000))) {
 							echo '<div><b>Error. La extensión o el tamaño de los archivos no es correcta.<br/> - Se permiten archivos .gif, .jpg, .png. y de 200 kb como máximo.</b></div>';
@@ -70,11 +127,11 @@
 							//Se intenta subir al servidor
 							if (move_uploaded_file($temp, '../Imagenes/Subidas/'.$archivo)) {
 								//Cambiamos los permisos del archivo a 777 para poder modificarlo posteriormente
-								chmod('images/'.$archivo, 0777);
+								chmod('../Imagenes/Subidas/'.$archivo, 0777);
 								//Mostramos el mensaje de que se ha subido co éxito
 								echo '<div><b>Se ha subido correctamente la imagen.</b></div>';
 								//Mostramos la imagen subida
-								echo '<p><img src="images/'.$archivo.'"></p>';
+								echo '<p><img src="../Imagenes/Subidas/'.$archivo.'"></p>';
 							}
 							else {
 								//Si no se ha podido subir la imagen, mostramos un mensaje de error
@@ -83,6 +140,7 @@
 						}
 					}
 				}
+				*/
 
 
 			}
