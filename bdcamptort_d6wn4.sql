@@ -113,6 +113,14 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento bdcamptort_d6wn4.SP09ListaPublicaciones
+DELIMITER //
+CREATE PROCEDURE `SP09ListaPublicaciones`()
+BEGIN
+	SELECT * FROM tpublicaciones;
+END//
+DELIMITER ;
+
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcatadoptado
 CREATE TABLE IF NOT EXISTS `tcatadoptado` (
   `Adoptado` int(11) NOT NULL AUTO_INCREMENT,
@@ -197,32 +205,44 @@ CREATE TABLE IF NOT EXISTS `tnidos` (
   KEY `FK_TNidos_tusuarios` (`Adopta`),
   CONSTRAINT `FK_TNidos_TCatAdoptado` FOREIGN KEY (`Adoptado`) REFERENCES `tcatadoptado` (`Adoptado`),
   CONSTRAINT `FK_TNidos_tusuarios` FOREIGN KEY (`Adopta`) REFERENCES `tusuarios` (`Nick`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tnidos: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tnidos: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `tnidos` DISABLE KEYS */;
 INSERT INTO `tnidos` (`Id`, `Nido`, `Huevos`, `Adoptado`, `Adopta`) VALUES
-	(3, 'Nido 1', 5, 2, NULL),
+	(3, 'Nido 1', 5, 1, 'u2@u.com'),
 	(4, 'Nido 2', 21, 1, 'u1@u.com'),
 	(5, 'Nido 3', 34, 2, NULL),
 	(6, 'Nido 4', 31, 1, 'u1@u.com'),
-	(7, 'Nido 5', 12, 2, NULL);
+	(7, 'Nido 5', 12, 2, NULL),
+	(8, 'Nido 6', 37, 2, NULL),
+	(9, 'Nido 7', 76, 2, NULL),
+	(10, 'Nido 8', 65, 2, NULL),
+	(11, 'Nido 9', 54, 2, NULL),
+	(12, 'Nido 10', 63, 2, NULL),
+	(13, 'Nido 11', 43, 2, NULL),
+	(14, 'Nido 12', 52, 2, NULL),
+	(26, 'Nido 13', 64, 2, NULL);
 /*!40000 ALTER TABLE `tnidos` ENABLE KEYS */;
 
 -- Volcando estructura para tabla bdcamptort_d6wn4.tpublicaciones
 CREATE TABLE IF NOT EXISTS `tpublicaciones` (
   `Publicacion` int(11) NOT NULL AUTO_INCREMENT,
-  `Texto` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Titulo` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'VACIO',
+  `Texto` varchar(2048) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'VACIO',
   `FechaHora` datetime NOT NULL,
   `Usuario` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `Token` varchar(130) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Token` varchar(130) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'VACIO',
   PRIMARY KEY (`Publicacion`),
   KEY `FK_TPublicaciones_tusuarios` (`Usuario`),
   CONSTRAINT `FK_TPublicaciones_tusuarios` FOREIGN KEY (`Usuario`) REFERENCES `tusuarios` (`Nick`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bdcamptort_d6wn4.tpublicaciones: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `tpublicaciones` DISABLE KEYS */;
+INSERT INTO `tpublicaciones` (`Publicacion`, `Titulo`, `Texto`, `FechaHora`, `Usuario`, `Token`) VALUES
+	(1, 'kljkgjc', 'hlgk\r\n', '2021-02-02 01:34:40', 'u1@u.com', 'VACIO'),
+	(2, 'jbhvgjdbk', 'ljbkcgjvkbjl', '2021-02-02 01:34:46', 'u1@u.com', 'VACIO');
 /*!40000 ALTER TABLE `tpublicaciones` ENABLE KEYS */;
 
 -- Volcando estructura para tabla bdcamptort_d6wn4.tusuarios
