@@ -353,15 +353,15 @@
 					$Solicitud = null;
 					$Consulta = "CALL `SP07ListaNidosEnAdopcion`(?);";
 					if( !$Solicitud = $MyConn->prepare( $Consulta ) ){
-						echo '{}';
+						#
 					}
 
 					if( !$Solicitud->bind_param("s", $_SESSION['Usuario'])){
-						echo '{}';
+						#
 					}
 
 					if( !$Solicitud->execute() ){
-						echo '{}';
+						#
 					}else{
 						$Resultado = $Solicitud->get_result();
 
