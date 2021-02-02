@@ -68,7 +68,7 @@
 						if ($tipo != 'image/jpeg' && $tipo != 'image/jpg' && $tipo != 'image/png' && $tipo != 'image/gif')
 						{
 							$reporte .= "<p style='color: red'>Error $nombre, el archivo no es una imagen.</p>";
-						}/*
+						}
 						else if($size > 1024*1024)
 						{
 							$reporte .= "<p style='color: red'>Error $nombre, el tamaño máximo permitido es 1mb</p>";
@@ -80,7 +80,7 @@
 						else if($width < 60 || $height < 60)
 						{
 							$reporte .= "<p style='color: red'>Error $nombre, la anchura y la altura mínima permitida es de 60px</p>";
-						}*/
+						}
 						else
 						{
 							$t = '';
@@ -93,16 +93,24 @@
 							$src = $carpeta.hash('sha256', $nombre.$_SESSION['Usuario'].$x).'.'.$t;
 
 							//Caragamos imagenes al servidor
-							move_uploaded_file($ruta_provisional, $src);       
+							move_uploaded_file($ruta_provisional, $src);
+							// Todo para el propietario, lectura y ejecución para los otros
+							//chmod($src, 0777);
+							// Lectura y escritura para el propietario, nada para los demás
+							//chmod($src, 0600);
+							// Lectura y escritura para el propietario, lectura para los demás
+							chmod($src, 0644);
 
 							//Codigo para insertar imagenes a tu Base de datos.
 							//Sentencia SQL
 
 							echo "<p style='color: blue'>La imagen $nombre ha sido subida con éxito</p>";
+							echo '<img src="' . $src . '">';
 						}
 					}
 
-					echo $reporte;
+					//echo $reporte;
+					header('location:../Publicaciones.php');
 				}
 
 
