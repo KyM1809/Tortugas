@@ -28,8 +28,8 @@
 
 		public function Crear(){
 			$this->MyConnection = $this->Connection->Conectar();
-			//$this->Consulta = "CALL `SP04CrearNido`(?,?);";
-			$this->Consulta = "INSERT INTO tnidos(Nido, Huevos, Adoptado, Adopta) VALUES(?,?, 2, Null);";
+			$this->Consulta = "CALL `SP04CrearNido`(?,?);";
+			//$this->Consulta = "INSERT INTO tnidos(Nido, Huevos, Adoptado, Adopta) VALUES(?,?, 2, Null);";
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
 				echo '{}';
 			}
