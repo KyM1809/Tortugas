@@ -31,16 +31,16 @@
 			$this->Consulta = "CALL `SP04CrearNido`(?,?);";
 			//$this->Consulta = "INSERT INTO tnidos(Nido, Huevos, Adoptado, Adopta) VALUES(?,?, 2, Null);";
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
-				echo '{}';
+				header('location:../Nidos.php');
 			}
 			$nom = $_POST["NombreNido"];
 			$num = $_POST["NumeroHuevos"];
 			if( !$this->Solicitud->bind_param("si", $nom, $num)){
-				echo '{}';
+				header('location:../Nidos.php');
 			}
 
 			if( !$this->Solicitud->execute() ){
-				echo '{}';
+				header('location:../Nidos.php');
 			}else{
 				header('location:../Nidos.php');
 				//echo '<br><b>ID:</b>' . $this->Connection->lastInsertId() . '<br><br><br>';
@@ -60,16 +60,16 @@
 			$this->MyConnection = $this->Connection->Conectar();
 			$this->Consulta = "CALL `SP08AdoptarNido`(?,?);";
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
-				echo '{}';
+				header('location:../Adoptar.php');
 			}
 			$Nido = $_POST["IdNido"];
 			$Usuario = $_SESSION["Usuario"];
 			if( !$this->Solicitud->bind_param("is", $Nido, $Usuario)){
-				echo '{}';
+				header('location:../Adoptar.php');
 			}
 
 			if( !$this->Solicitud->execute() ){
-				echo '{}';
+				header('location:../Adoptar.php');
 			}else{
 				header('location:../MisNidos.php');
 			}
