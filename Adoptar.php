@@ -353,11 +353,11 @@
 					$Solicitud = null;
 					$Consulta = "CALL `SP06ListaNidosNoAdoptados`();";
 					if( !$Solicitud = $MyConn->prepare( $Consulta ) ){
-						$
+						#
 					}
 
 					if( !$Solicitud->execute() ){
-						$
+						#
 					}else{
 						$Resultado = $Solicitud->get_result();
 
@@ -392,7 +392,7 @@
 		</div>
 	</body>
 	<?php
-		include('php/scripts.php');
+		include('php/Scripts.php');
 	?>
 	<script type="text/javascript">
 		let sys = {
