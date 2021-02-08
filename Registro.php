@@ -102,7 +102,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 offset-md-1 offset-lg-1">
 					<div class="form-group">
 						<div class="wrap-input100 validate-input">
-							<input class="input100" type="text" placeholder="Contraseña" id="Contrasena">
+							<input class="input100" type="password" placeholder="Contraseña" id="Contrasena">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-key" aria-hidden="true"></i>
@@ -115,7 +115,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 offset-md-1 offset-lg-1">
 					<div class="form-group">
 						<div class="wrap-input100 validate-input">
-							<input class="input100" type="text" placeholder="Confirmar contraseña" id="Contrasena2">
+							<input class="input100" type="password" placeholder="Confirmar contraseña" id="Contrasena2">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-key" aria-hidden="true"></i>
