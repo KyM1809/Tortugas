@@ -227,7 +227,14 @@
 
 						Sys.Data.Formulario.append('Id',1);
 						Sys.Data.WebService = 'php/Consulta.php';
-						Sys.Ajax.Solicitud();
+						var S = JSON.parse(Sys.Ajax.Solicitud());
+						if(S.Correcto){
+							window.location.href = 'Inicio.php';
+						}else{
+							if(S.Existe){
+								alert('Ese correo ya se esta usando!');
+							}
+						}
 					}catch(Ex){
 						console.log('----------------------------------------------');
 						console.error(Ex);
