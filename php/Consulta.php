@@ -1,6 +1,4 @@
 <?php
-	session_start();
-	include "Conexion.php";
 	include "Utiles.php";
 	include "Usuario.php";
 	class Inventario{
@@ -37,8 +35,14 @@
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
 				echo '{"Exito": true, "Correcto": false, "P": 1, "Existe":true}';
 			}
+			$n = $_POST["Nombre"];
+			$ap = $_POST["APaterno"];
+			$am = $_POST["AMaterno"];
+			$cel = $_POST["Celular"];
+			$cor = $_POST["Correo"];
+			$con = hash('sha256', $_POST["Contrasena"]);
 
-			if( !$this->Solicitud->bind_param("ssssss",$_POST["Correo"], $_POST["Nombre"], $_POST["APaterno"], $_POST["AMaterno"], $_POST["Celular"], $_POST["Correo"], $_POST["Contrasena"] )){
+			if( !$this->Solicitud->bind_param("ssssss", $n, $ap, $am, $cel, $cor, $con )){
 				echo '{"Exito": true, "Correcto": false, "P": 2, "Existe":true}';
 			}
 
