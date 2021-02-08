@@ -40,7 +40,7 @@
 			$am = $_POST["AMaterno"];
 			$cel = $_POST["Celular"];
 			$cor = $_POST["Correo"];
-			$con = hash('sha256', $_POST["Contrasena"]);
+			$con = hash('sha512', $_POST["Contrasena"]);
 
 			if( !$this->Solicitud->bind_param("ssssss", $n, $ap, $am, $cel, $cor, $con )){
 				echo '{"Exito": true, "Correcto": false, "P": 2, "Existe":true}';
