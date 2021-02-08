@@ -33,12 +33,12 @@
 
 		public function RegistrarUsuario(){
 			$this->MyConnection = $this->Connection->Conectar();
-			$this->Consulta = "CALL `SP002EliminarUsuario`(?);";
+			$this->Consulta = "CALL `SP11RegistrarUsuario`(?,?,?,?,?,?);";
 			if( !$this->Solicitud = $this->MyConnection->prepare( $this->Consulta ) ){
 				echo '{"Exito": true, "Correcto": false, "P": 1, "Existe":true}';
 			}
 
-			if( !$this->Solicitud->bind_param("s",$_POST["Usuario"] )){
+			if( !$this->Solicitud->bind_param("ssssss",$_POST["Correo"], $_POST["Nombre"], $_POST["APaterno"], $_POST["AMaterno"], $_POST["Celular"], $_POST["Correo"], $_POST["Contrasena"] )){
 				echo '{"Exito": true, "Correcto": false, "P": 2, "Existe":true}';
 			}
 
@@ -49,7 +49,7 @@
 				$this->Respuesta = $this->Resultado->fetch_assoc();
 				
 				if($this->Respuesta["Codigo"] == "1"){
-					echo '{"Exito": true, "Correcto": true, "P": 4, "Existe":true}';
+					echo '{"Exito": true, "Correcto": true, "P": 4, "Existe":false}';
 				}else{
 					echo '{"Exito": true, "Correcto": false, "P": 5, "Existe":true}';
 				}
