@@ -131,6 +131,25 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para procedimiento bdcamptort_d6wn4.SP11RegistrarUsuario
+DELIMITER //
+CREATE PROCEDURE `SP11RegistrarUsuario`(
+	IN `nombre` VARCHAR(40),
+	IN `ap` VARCHAR(20),
+	IN `am` VARCHAR(20),
+	IN `cel` VARCHAR(15),
+	IN `correo` VARCHAR(100),
+	IN `contra` VARCHAR(130)
+)
+BEGIN
+	INSERT INTO tusuarios
+		(Nick, Nombre, ApellidoPaterno, ApellidoMaterno, Celular, Correo, Contrasena, TipoUsuario)
+	VALUES
+		(correo, nombre, ap, am, cel, correo, contra, 2);
+	SELECT '1' AS Codigo;
+END//
+DELIMITER ;
+
 -- Volcando estructura para tabla bdcamptort_d6wn4.tcatadoptado
 CREATE TABLE IF NOT EXISTS `tcatadoptado` (
   `Adoptado` int(11) NOT NULL AUTO_INCREMENT,
@@ -199,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `tmultimediapublicacion` (
   CONSTRAINT `FK_TMultimediaPublicacion_TPublicaciones` FOREIGN KEY (`Publicacion`) REFERENCES `tpublicaciones` (`Publicacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tmultimediapublicacion: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tmultimediapublicacion: ~1 rows (aproximadamente)
 /*!40000 ALTER TABLE `tmultimediapublicacion` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tmultimediapublicacion` ENABLE KEYS */;
 
@@ -217,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `tnidos` (
   CONSTRAINT `FK_TNidos_tusuarios` FOREIGN KEY (`Adopta`) REFERENCES `tusuarios` (`Nick`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bdcamptort_d6wn4.tnidos: ~13 rows (aproximadamente)
+-- Volcando datos para la tabla bdcamptort_d6wn4.tnidos: ~12 rows (aproximadamente)
 /*!40000 ALTER TABLE `tnidos` DISABLE KEYS */;
 INSERT INTO `tnidos` (`Id`, `Nido`, `Huevos`, `Adoptado`, `Adopta`) VALUES
 	(3, 'Nido 1', 5, 1, 'u2@u.com'),
@@ -270,6 +289,7 @@ CREATE TABLE IF NOT EXISTS `tusuarios` (
 -- Volcando datos para la tabla bdcamptort_d6wn4.tusuarios: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `tusuarios` DISABLE KEYS */;
 INSERT INTO `tusuarios` (`Nick`, `Nombre`, `ApellidoPaterno`, `ApellidoMaterno`, `Celular`, `Correo`, `Contrasena`, `TipoUsuario`) VALUES
+	('m@u.com', 'Marco', 'Gutierrez', 'Sanchez', '753', 'm@u.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 2),
 	('u1@u.com', 'Eduardo', 'Velazquez', 'Cerda', '753', 'u1@u.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 1),
 	('u2@u.com', 'Alonso', 'Velazquez', 'Cerda', '753', 'u2@u.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2', 2);
 /*!40000 ALTER TABLE `tusuarios` ENABLE KEYS */;
